@@ -45,15 +45,11 @@ int main()
 
 		for (int i = 0; i < platforms.size(); i++)
 		{
-			if (platforms[i].GetHitbox().intersects(pCol))
+			if (platforms[i].GetHitbox().intersects(pCol) && player.getY() > 0)
 			{
-				//float deltaY = otherPosition.y - thisPosition.y;
+				//i mean... i could make this another class to get it under 50 or take out all the spaces... but i'd be an animal for doing that
 				Vector2f Pos = platforms[i].GetPosition() - player.GetPosition();
 				float inter = abs(Pos.y) - ((platforms[i].GetHalfSize().y) + player.GetHalfSize().y);
-				if (inter < 0.0f) 
-				{
-					//player.Move(-inter);
-				}
 				player.OnCollision();
 			}
 		}

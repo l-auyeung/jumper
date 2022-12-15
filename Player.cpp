@@ -10,7 +10,7 @@ Player::Player(Texture* texture, float speed, float jumpHeight)
 	//body.setOrigin(body.getSize() / 4.0f);
 	body.setPosition(PLAYER_START_X, PLAYER_START_Y);
 	body.setTexture(texture);
-	jumping = false;
+	
 }
 
 Player::~Player() {}
@@ -26,7 +26,7 @@ void Player::Update(float deltaTime)
 
 	velocity.y += 981.0f * deltaTime; //effect of gravity
 
-	if (velocity.y > 0) { jumping = false; }
+	if (velocity.y > 0) { }
 
 	body.move(velocity * deltaTime);
 	//maybe add jump collision here and jump?
@@ -44,7 +44,7 @@ void Player::OnCollision()
 	
 	//falling down
 	velocity.y = -sqrt(2.0f * 981.0f * jumpHeight);
-	jumping = true;
+	
 	
 }
 
@@ -61,4 +61,9 @@ void Player::stopY()
 void Player::Move(float yMove)
 {
 	body.move(0.0f, yMove);
+}
+
+float Player::getY()
+{
+	return velocity.y;
 }

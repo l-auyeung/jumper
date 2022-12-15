@@ -14,10 +14,10 @@ public:
 	void stopY();
 	Vector2f GetHalfSize() { return body.getSize() / 2.0f; }
 	void Move(float yMove);
+	float getY();
 
 private:
 	RectangleShape body;
-	bool jumping;
 	float jumpHeight;
 	float speed;
 
